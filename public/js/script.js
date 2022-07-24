@@ -1,4 +1,6 @@
-// IT WOOORKRKKRS IM SO HAPPY RN :D
-// alert('Test');
+const geolocation = document.querySelector('.geolocation');
+const geoBtn = document.querySelector('.geo-btn');
 
-// const inputs = document.querySelectorAll('input');
+geoBtn.addEventListener('click', () => {
+    fetch('/coords')
+});

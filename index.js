@@ -71,6 +71,10 @@ app.post('/redirect', (req, res) => {
     res.redirect('/');
 });
 
+app.post('/coords', (req, res) => {
+    console.log(req.body);
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
