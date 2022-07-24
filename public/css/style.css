@@ -80,6 +80,10 @@ body {
     color: rgba(0, 0, 0);
 }
 
+.github-link:hover {
+    text-decoration: underline;
+}
+
 .footer {
     margin-top: 50px;
     display: flex;
