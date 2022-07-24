@@ -1,6 +1,18 @@
-const geolocation = document.querySelector('.geolocation');
 const geoBtn = document.querySelector('.geo-btn');
 
 geoBtn.addEventListener('click', () => {
-    fetch('/coords')
+
+    const geolocation = navigator.geolocation;
+
+    geolocation.getCurrentPosition((coords) => {
+        fetch('/coords', { 
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
+                coords
+            }
+        })
+    });
 });
