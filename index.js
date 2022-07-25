@@ -72,5 +72,5 @@ app.post('/coords', (req, res) => {
 });
 
 app.listen(process.env.PORT || port, () => {
-    console.log(`Server started on port 3000`);
+    console.log(`Server started on port ${process.env.PORT}`);
 });
