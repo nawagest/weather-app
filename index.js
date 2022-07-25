@@ -10,7 +10,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -72,7 +72,7 @@ app.post('/redirect', (req, res) => {
 });
 
 app.post('/coords', (req, res) => {
-    console.log(req.body);
+    console.log(req);
 });
 
 app.listen(port, () => {
