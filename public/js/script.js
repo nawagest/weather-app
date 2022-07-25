@@ -5,14 +5,14 @@ geoBtn.addEventListener('click', () => {
     const geolocation = navigator.geolocation;
 
     geolocation.getCurrentPosition((coords) => {
-        
-        const { coords: {latitude:lat, longitude:lng} } = coords;
-        const data = JSON.stringify({lat, lng });
+
+        const { coords: { latitude: lat, longitude: lng } } = coords;
+        const data = JSON.stringify({ lat, lng });
         console.log(coords)
         console.log(data);
 
-        fetch('/coords', { 
-            method: 'POST', 
+        fetch('/coords', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -20,7 +20,7 @@ geoBtn.addEventListener('click', () => {
                 data
             }
         })
-        .then(res => res.json())
-        .then(data => console.log(data));
+            .then(res => res.json())
+            .then(data => console.log(data));
     });
 });
