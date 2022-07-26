@@ -70,9 +70,9 @@ app.post('/redirect', (req, res) => {
 
 app.post('/coords', (req, res) => {
     const { lat, lng } = req.body;
-    const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lng}&limit=1&appid=${apiKey}`
+    const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lng}&limit=1&appid=${apiKey}`
 
-    http.get(url, (response) => {
+    https.get(url, (response) => {
         response.on('data', (data) => {
             data = JSON.parse(data);
             const { name, country, state } = data[0];
