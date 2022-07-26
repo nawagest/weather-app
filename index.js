@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https');
-const http = require('http');
 const dotenv = require('dotenv').config();
 const ejs = require('ejs');
 const port = process.env.PORT || 3000;
@@ -72,7 +71,7 @@ app.post('/coords', (req, res) => {
     const { lat, lng } = req.body;
     const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lng}&limit=1&appid=${apiKey}`
 
-    http.get(url, (response) => {
+    https.get(url, (response) => {
         response.on('data', (data) => {
             data = JSON.parse(data);
             const { name, country, state } = data[0];
