@@ -25,5 +25,7 @@ geoBtn.addEventListener('click', () => {
             weatherUnits.value = 'F';
             searchForm.submit();
         });
+    }, (err) => {
+        console.log(err);
     });
 });
