@@ -11,8 +11,6 @@ geoBtn.addEventListener('click', () => {
 
         const { coords: { latitude: lat, longitude: lng } } = coords;
         const data = JSON.stringify({ lat, lng });
-        console.log(coords)
-        console.log(data);
 
         fetch('/coords', {
             method: 'POST',
