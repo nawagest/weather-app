@@ -15,6 +15,24 @@ body {
     background: -webkit-linear-gradient(20deg, #4E65FF60 50%, #fff 50%);
 }
 
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    height: 30px;
+    width: 100vw;
+    background: linear-gradient(45deg,  #4e66ff, #4E65FFa1);
+}
+
+.notification-text {
+    color: #fff;
+    font-family: 'Rublik', sans-serif;
+    font-weight: 600;
+}
+
 .geo-btn {
     margin: 15px;
     width: 200px;
@@ -110,4 +128,9 @@ body {
 
 .logo-github {
     color: black;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
 }
