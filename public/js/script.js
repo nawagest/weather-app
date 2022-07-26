@@ -1,3 +1,6 @@
+const weatherSearch = document.querySelector('.weather-search');
+const weatherUnits = document.querySelector('.weather-units');
+const searchForm = document.querySelector('.search-form');
 const geoBtn = document.querySelector('.geo-btn');
 
 geoBtn.addEventListener('click', () => {
@@ -16,11 +19,13 @@ geoBtn.addEventListener('click', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {
-                data
-            }
+            body: data
         })
-            .then(res => res.json())
-            .then(data => console.log(data));
+        .then(res => res.json())
+        .then(data => {
+            weatherSearch.value = data.name;
+            weatherUnits.value = 'F';
+            searchForm.submit();
+        });
     });
 });

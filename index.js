@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https');
+const http = require('http');
 const dotenv = require('dotenv').config();
 const ejs = require('ejs');
 const port = process.env.PORT || 3000;
+const apiKey = process.env.APPID;
 
 const app = express();
 
@@ -18,7 +20,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-    const apiKey = process.env.APPID;
     const { cityName, units: u} = req.body;
     const q = cityName;
     
@@ -68,7 +69,16 @@ app.post('/redirect', (req, res) => {
 });
 
 app.post('/coords', (req, res) => {
-    console.log(req);
+    const { lat, lng } = req.body;
+    const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lng}&limit=1&appid=${apiKey}`
+
+    http.get(url, (response) => {
+        response.on('data', (data) => {
+            data = JSON.parse(data);
+            const { name, country, state } = data[0];
+            res.send({ name, country, state });
+        });
+    });
 });
 
 app.listen(port, () => {
