@@ -75,7 +75,7 @@ app.post('/coords', (req, res) => {
         response.on('data', (data) => {
             data = JSON.parse(data);
             const { name, country, state } = data[0];
-            res.send({ name, country, state });
+            res.send(JSON.stringify({ name, country, state }));
         });
     });
 });
